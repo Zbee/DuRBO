@@ -12,3 +12,15 @@ to your game.
 `example.com/DuRB.php?user=1704`
 - Would need to use something like [phpquery](https://github.com/tobiaszcudnik/phpquery) to get the contents of the ranked beatmaps page.
 - User's osu! distribution would need to live in their Dropbox folder.
+
+## Licensing
+Copyright 2015 Ethan Henderson.
+
+[![GPLv3](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/copyleft/gpl.html)
+See the [`LICENSE`](https://github.com/Zbee/DuRB/blob/master/LICENSE) file for the text of this license.
+
+Utilizes [phpquery](https://github.com/TobiaszCudnik/phpquery).
+
+> Copyright (c) Tobiasz Cudnik <tobiasz.cudnik/gmail.com>
+
+> MIT License

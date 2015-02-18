@@ -21,6 +21,6 @@ See the [`LICENSE`](https://github.com/Zbee/DuRB/blob/master/LICENSE) file for t
 
 Utilizes [phpquery](https://github.com/TobiaszCudnik/phpquery).
 
-> Copyright (c) Tobiasz Cudnik <tobiasz.cudnik/gmail.com>
+> Copyright (c) Tobiasz Cudnik &lt;tobiasz.cudnik/gmail.com>
 
 > MIT License

@@ -7,9 +7,14 @@ The reason why you have to put in that much effort is because beatmaps for osu! 
 DuRB seeks to change that by acting as a middleman for osu! and ifttt. DuRB will - when the DuRB page is loaded - generate an xml document of the current [ranked beatmaps](https://osu.ppy.sh/p/beatmaplist&s=4&r=0) allowing ifttt to check something and download beatmaps straight 
 to your game.
 
+## Todo list
+- Get data from osu! beatmaps page (default to the ranked beatmaps page, but let users specify a different one)
+- Manipulate that data with phpquery into a usable array of information
+- If a user is specified, remove items that they have already seen before
+- Return XML which [IFTTT checks every 15 minutes or so](https://ifttt.com/wtf)
+- Create recipe to check DuRB and download beatmaps to dropbox
+
 ## Caveats
-- ifttt can check for updates to the xml document, or DuRB could just remove beatmaps that have been shown before. For this model to work, people would need to specify their user id when using DuRB. Instead of `example.com/DuRB.php` being the xml, it would be 
-`example.com/DuRB.php?user=1704`
 - Would need to use something like [phpquery](https://github.com/tobiaszcudnik/phpquery) to get the contents of the ranked beatmaps page.
 - User's osu! distribution would need to live in their Dropbox folder.
 

@@ -6,7 +6,7 @@ You can go and look through beatmaps and pick the ones that look good, but why p
 
 The reason why you have to put in that much effort is because beatmaps for osu! do not have any sort of feed IFTTT can check for updates.
 
-DuRB seeks to change that by acting as a middleman for osu! and IFTTT. DuRB will - when the DuRB page is loaded - generate an xml document of the current [ranked beatmaps](https://osu.ppy.sh/p/beatmaplist&s=4&r=0) allowing IFTTT to check something and download beatmaps straight 
+DuRBO seeks to change that by acting as a middleman for osu! and IFTTT. DuRBO will - when the DuRBO page is loaded - generate an xml document of the current [ranked beatmaps](https://osu.ppy.sh/p/beatmaplist&s=4&r=0) allowing IFTTT to check something and download beatmaps straight 
 to your game.
 
 ## Todo list
@@ -14,7 +14,7 @@ to your game.
 - Manipulate that data with phpquery into a usable array of information
 - If a user is specified, remove items that they have already seen before
 - Return XML which [IFTTT checks every 15 minutes or so](https://ifttt.com/wtf)
-- Create recipe to check DuRB and download beatmaps to dropbox
+- Create recipe to check DuRBO and download beatmaps to dropbox
 
 ## Caveats
 - Would need to use something like [phpquery](https://github.com/tobiaszcudnik/phpquery) to get the contents of the ranked beatmaps page.

@@ -1,4 +1,6 @@
-# DuRB
+# DuRBO
+Download Ranked Beatmaps for Osu!
+
 [osu!](https://osu.ppy.sh/) is a very fun game, however to keep playing you want to download [beatmaps](https://osu.ppy.sh/p/beatmaplist).
 You can go and look through beatmaps and pick the ones that look good, but why put in that much effort? What if instead you could just have [IFTTT](https://ifttt.com) do the work for you, and download new, top ranked beatmaps straight to the game?
 

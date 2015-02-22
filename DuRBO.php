@@ -18,7 +18,25 @@ function saniXML ($xml) {
 
 $url = "https://osu.ppy.sh/p/beatmaplist&s=4&r=0";
 if (isset($_GET["p"])) {
-  $url = $_GET["p"];
+  switch($_GET["p"]) {
+    case "ra": #Ranked and approved
+      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=0&g=0&la=0";
+      break;
+    case "a": #Approved
+      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=6&g=0&la=0";
+      break;
+    case "q": #Qualified
+      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=11&g=0&la=0";
+      break;
+    case "p": #Pending
+      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=2&g=0&la=0";
+      break;
+    case "l": #All
+      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=4&g=0&la=0";
+      break;
+      $url = $_GET["p"]; #Cannot have an ampersand in url
+      $break;
+  }
 }
 
 $page = file_get_contents($url);
@@ -33,6 +51,7 @@ $channel->addChild(
   "DuRBO allows osu! players to download new beatmaps automagically"
 );
 $channel->addChild("lastBuildDate", date(DATE_RFC2822, time()));
+$channel->addChild("pubDate", date(DATE_RFC2822, time()));
 $channel->addChild("link", "http://zbee.me/durbo/DuRBO.php");
 
 $atomlink = $channel->addChild("link", "", "http://www.w3.org/2005/Atom");

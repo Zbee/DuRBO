@@ -12,12 +12,15 @@ DuRBO seeks to change that by acting as a middleman for osu! and IFTTT. DuRBO wi
 To use DuRBO, you will need to use or at least have one of the following services (Dropbox, Drive, Box) and have your osu! distribution in the specified folder for each service.
 
 [![IFTTT Recipe](https://i.imgur.com/EVfqRhu.png)](https://ifttt.com/view_embed_recipe/262301-download-osu-beatmaps)
+
 `Apps/osu/`
 
 [![IFTTT Recipe](https://i.imgur.com/c95xJ4I.png)](https://ifttt.com/view_embed_recipe/262303-download-osu-beatmaps)
+
 `Games/osu/`
 
 [![IFTTT Recipe](https://i.imgur.com/1ACGaaF.png)](https://ifttt.com/view_embed_recipe/262306-download-osu-beatmaps)
+
 `Games/osu/`
 
 ## Todo list

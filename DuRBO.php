@@ -16,28 +16,7 @@ function saniXML ($xml) {
   return $xml;
 }
 
-$url = "https://osu.ppy.sh/p/beatmaplist&s=4&r=0";
-if (isset($_GET["p"])) {
-  switch($_GET["p"]) {
-    case "ra": #Ranked and approved
-      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=0&g=0&la=0";
-      break;
-    case "a": #Approved
-      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=6&g=0&la=0";
-      break;
-    case "q": #Qualified
-      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=11&g=0&la=0";
-      break;
-    case "p": #Pending
-      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=2&g=0&la=0";
-      break;
-    case "l": #All
-      $url = "https://osu.ppy.sh/p/beatmaplist?m=-1&r=4&g=0&la=0";
-      break;
-      $url = $_GET["p"]; #Cannot have an ampersand in url
-      $break;
-  }
-}
+$url = "http://www.osubeatmaps.com/en/listing/0/0/1/";
 
 $page = file_get_contents($url);
 
@@ -59,22 +38,27 @@ $atomlink->addAttribute("href", "http://zbee.me/durbo/DuRBO.php");
 $atomlink->addAttribute("rel", "self");
 $atomlink->addAttribute("type", "application/rss+xml");
 
-$maps = pq(".beatmapListing");
+$maps = pq(".listing_content");
 
-foreach($maps["> .beatmap"] as $map) {
+foreach($maps["> .listing_item"] as $map) {
   $bm = $channel->addChild("item");
 
-  $id = saniXML(pq($map)->attr("id"));
+  $id = pq($map)->find(".listing_img_link")->attr("href");
+  $id = explode("/", $id);
+  $id = $id[count($id)-2];
+  $id = saniXML($id);
 
-  $guid = saniXML("https://osu.ppy.sh/s/" . $id);
+  $guid = saniXML("http://www.osubeatmaps.com/en/" . $id);
   $guid = $bm->addChild("guid", $guid);
   $guid->addAttribute("isPermaLink", "false");
 
-  $link = saniXML("https://osu.ppy.sh/d/" . $id);
+  $title = saniXML(pq($map)->find(".item_title")->text());
+  $artist = saniXML(pq($map)->find(".item_artist")->text());
+
+  $link = "http://dl.osubeatmaps.com/"
+    . rawurlencode($id . " " . $artist . " - " . $title . ".osz");
   $bm->addChild("link", $link);
 
-  $title = saniXML(pq($map)->find(".title")->text());
-  $artist = saniXML(pq($map)->find(".artist")->text());
   $bm->addChild("description", $artist . " - " . $title);
   $bm->addChild("title", $title);
 }
